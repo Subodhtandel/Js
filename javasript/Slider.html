@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <img src="pic_bulbon.gif" alt="" height="200px" width="300px" id="img1">
+    <img src="ph1.jpg" alt="" height="200px" width="300px" id="img2">
+    <img src="pic_bulboff.gif" alt="" id="img3" height="200px" width="300px">
+     <button id="leftbtn">Left</button>
+    <button id="rightbtn">Right</button>
+    <script>
+        let count = 0;
+        console.log(count);
+        document.getElementById('rightbtn').addEventListener('click',()=>{
+            count++;
+            console.log(count);
+            if(count==3){
+                count=0
+            }
+            changeImage();
+        })
+        document.getElementById('leftbtn').addEventListener('click',()=>{
+            count--;
+            if(count<0){
+                count=2;
+            }
+            changeImage();
+        })
+        function changeImage(){
+            document.getElementById('img1').style.display = "none";
+            document.getElementById('img2').style.display = "none";
+            document.getElementById('img3').style.display = "none";
+            document.getElementById(`img${count+1}`).style.display = "block";
+        }
+    </script>
+</body>
+</html>

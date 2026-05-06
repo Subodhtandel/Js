@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Function</title>
+</head>
+<body>
+    <style>
+        body{
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(0, 0, 0);
+        }
+        .clock{
+            padding: 50px;
+            color: rgb(255, 0, 0);
+            background-color: rgb(54, 14, 176);
+            border: 2px solid red;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 20px;
+            font: 500 30px 'Arial', san francisco;
+        }
+    </style>
+    <h1></h1>
+    <p id="clock" class="clock"></p>
+    
+    <script>
+        // Timer function implementation
+        console.log("Timer function started.");
+
+        setTimeout(() => {
+            console.log("Seconds.");
+        }, 2000);
+
+        function digitalClock() {
+            const nowTime =new Date();
+            let year = String(nowTime.getFullYear());
+            let month = String(nowTime.getMonth() + 1).padStart(2, '0');
+            let day = String(nowTime.getDate()).padStart(2, '0');
+            console.log(`${year}-${month}-${day}`);
+
+
+            let hours = String(nowTime.getHours()).padStart(2, '0');
+            let minutes = String(nowTime.getMinutes()).padStart(2, '0');
+            let seconds = String(nowTime.getSeconds()).padStart(2, '0');
+
+            let formatteddate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+
+            document.getElementById("clock").innerText = formatteddate;
+        }
+        setInterval(digitalClock, 1000);
+    </script>
+</body>
+</html>

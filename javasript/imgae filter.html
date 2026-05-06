@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img{
+            height: 500px;
+            width: 500px;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-self: center;;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="ph1.jpg" alt="" class="img" id="img1">
+
+        <div style="margin-top:520px;">
+            <button data-filter="none">Original</button>
+            <button data-filter="grayscale(100%)">Grayscale</button>
+            <button data-filter="sepia(100%)">Sepia</button>
+            <button data-filter="blur(4px)">Blur</button>
+            <button data-filter="brightness(150%)">Bright</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        const img = document.getElementById('img1');
+        Array.from(document.querySelectorAll('button')).forEach(b => b.onclick = () => img.style.filter = b.dataset.filter || 'none');
+    </script>
+</body>
+</html>

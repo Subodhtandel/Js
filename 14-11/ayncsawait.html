@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ayncsawait</title>
+</head>
+<body>
+    <table border="1" align="center">
+        <thead>
+            <tr>
+                <td>Product Name</td>
+                <td>Price</td>
+                <td>Description</td>
+                <td>Image</td>
+               
+            </tr>
+        </thead>
+        <tbody id="tabledata">
+               
+        </tbody>
+    </table>
+</body>
+<script>
+    async function getProduct(){
+        try {
+        let res= await fetch('https://fakestoreapi.com/products');
+        let product =await res.json();
+        printProduct(product)
+        
+        } catch (error) {
+            console.log(error);
+            
+        }
+    }
+
+   
+    function printProduct(data){
+        let str="";
+        data.map((index)=>{
+          str+=`
+                <tr>
+                    <td>${index.title}</td>
+                    <td>${index.price}</td>
+                    <td>${index.description}</td>
+                    <td> <img src="${index.image}" alt="" width="50px" height="50px"></td>
+                </tr>
+          ` 
+        })
+        document.getElementById('tabledata').innerHTML=str;
+        
+    }
+     getProduct();
+
+     
+     
+</script>
+</html>

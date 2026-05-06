@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum Calculator</title>
+    <script>
+        function calculate() {
+            let num1 = document.getElementById('num1').value;
+            let num2 = document.getElementById('num2').value;
+            
+            num1 = Number(num1);
+            num2 = Number(num2);
+
+            let sum = num1 + num2;
+
+            document.getElementById('result').innerText = "Result: " + sum;
+        }
+        function changeImgStyle(str){
+            let ph1=document.getElementById('ph1')
+            if(str=="gray"){
+                ph1.style.filter = "grayscale(100%)";
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <label>Enter Num1:</label>
+        <input type="text" id="num1"><br>
+
+        <label>Enter Num2:</label>
+        <input type="text" id="num2"><br>
+
+        <button onclick="calculate()">Click</button>
+
+        <p id="result"></p>
+    </fieldset>
+</body>
+</html>

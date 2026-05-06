@@ -1,0 +1,118 @@
+<!-- <!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Checker</title>
+</head>
+<body>
+    <button onclick="checknumber()">Check Number</button>
+
+    <script>
+        function checknumber(){
+            let data;
+            let num = prompt("Enter a Number");
+            if(num > 0){
+                console.log(num+"The number is Positive");
+                alert = "Positive";
+            }
+            else if(num < 0){
+                console.log(`${num} The number is Negative`);
+                alert = "Negative";
+            }
+            else{
+                console.log(`${num} The number is Zero`);
+                alert = "Zero";
+            }
+        }
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+            max-width: 400px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button {
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Number Checker</h2>
+        <p>Enter a number to see if it is positive, negative, or zero:</p>
+        
+        <input type="number" id="numberInput" placeholder="Enter a number">
+        
+        <button onclick="checkNumber()">Check</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkNumber() {
+            // 1. Get the value from the input field
+            let inputValue = document.getElementById("numberInput").value;
+            let resultDisplay = document.getElementById("result");
+
+            // 2. Handle empty inputs
+            if (inputValue === "") {
+                resultDisplay.textContent = "Please enter a number.";
+                resultDisplay.style.color = "black";
+                return; // Stop the function here
+            }
+
+            // 3. Convert the input text into a number type
+            let num = Number(inputValue);
+
+            // 4. The if-else logic
+            if (num > 0) {
+                resultDisplay.textContent = num + " is a positive number.";
+                resultDisplay.style.color = "green"; // Optional: Add some color
+            } else if (num < 0) {
+                resultDisplay.textContent = num + " is a negative number.";
+                resultDisplay.style.color = "red";
+            } else {
+                resultDisplay.textContent = "The number is zero.";
+                resultDisplay.style.color = "blue";
+            }
+        }
+    </script>
+
+</body>
+</html>

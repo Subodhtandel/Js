@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+  const express = require('express');
+const app = express();
+const port = 3000;
+
+// Example data
+const users = [
+  { id: 1, name: "John Doe" },
+  { id: 2, name: "Jane Smith" }
+];
+
+// GET method API
+app.get('/users', (req, res) => {
+  res.json(users); // Sends JSON data (Postman will display this)
+});
+
+// Start server
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
+
+
+    </script>
+</body>
+</html>

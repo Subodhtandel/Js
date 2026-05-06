@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Day of Week - Switch Example</title>
+  <style>body{font-family:Arial;margin:20px}</style>
+</head>
+<body>
+  <h1>Day of Week (switch)</h1>
+  <p>Enter a number from 1 to 7 to get the corresponding day.</p>
+  <button id="run">Show Day</button>
+  <div id="result" style="margin-top:12px;font-weight:600"></div>
+
+  <script>
+    document.getElementById('run').addEventListener('click', function () {
+      const input = prompt('Enter a number (1-7):');
+      // Convert input to integer; handle non-numeric gracefully
+      const n = parseInt(input, 10);
+      let day;
+
+      switch (n) {
+        case 1:
+          day = 'Monday';
+          break;
+        case 2:
+          day = 'Tuesday';
+          break;
+        case 3:
+          day = 'Wednesday';
+          break;
+        case 4:
+          day = 'Thursday';
+          break;
+        case 5:
+          day = 'Friday';
+          break;
+        case 6:
+          day = 'Saturday';
+          break;
+        case 7:
+          day = 'Sunday';
+          break;
+        default:
+          day = 'Invalid input — please enter a number from 1 to 7.';
+      }
+
+      document.getElementById('result').textContent = day;
+    });
+  </script>
+</body>
+</html>

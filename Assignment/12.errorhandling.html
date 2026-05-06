@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Handling</title>
+</head>
+<body>
+    <h1>Try...Catch Example</h1>
+    <p id="result"></p>
+
+    <script>
+        const resultElement = document.getElementById("result");
+
+        try {
+            const numerator = 10;
+            const denominator = 0;
+
+            if (denominator === 0) {
+                throw new Error("Cannot divide by zero.");
+            }
+
+            const result = numerator / denominator;
+            resultElement.textContent = `Result: ${result}`;
+        } catch (error) {
+            const message = `Error: ${error.message}`;
+            console.error(message);
+            resultElement.textContent = message;
+        }
+    </script>
+</body>
+</html>

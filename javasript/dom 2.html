@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .black{
+            color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            background-color: black;
+            width: 100%;
+        }
+         .white{
+            background-color: lightyellow;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="themeChange()" id="btn">DArk</button>
+    <div class="white"id="main"><h1>Theme Change</h1></div>
+
+    <img src="pic_bulbon.gif" alt="" height="200px" width="300px" id="img1">
+    <button onclick="changeImage()">Image Change</button>
+
+    <script>
+        function themeChange(){
+            let main = document.getElementById("main");
+            let oldtheme = main.getAttribute("class");
+            let newTheme = oldtheme === "white" ? "black" : "white";
+            main.setAttribute("class", newTheme);
+            let text = newTheme === "white" ? "Dark" : "Light";
+            document.getElementById("btn").innerText = text;
+        }
+
+        function changeImage(){
+            let img1 = document.getElementById("img1");
+            let oldSrc = img1.getAttribute("src");
+            let newSrc = oldSrc === "pic_bulbon.gif" ? "pic_bulboff.gif" : "pic_bulbon.gif";
+            img1.setAttribute("src", newSrc);
+        }
+    </script>
+</body>
+</html>

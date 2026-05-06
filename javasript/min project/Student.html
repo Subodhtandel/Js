@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Score Manager</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Student Score Manager</h1>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div class="card shadow-sm p-4">
+            <div class="Form Section">
+                <input type="text" id="name" class="form-control mb-3" placeholder="Enter Student Name"/>
+                <input type="number" id="score" class="form-control mb-3" placeholder="Enter Student Score"/>
+                <button class="btn btn-primary" id="addStudent" onclick="addStudent()">Add Student</button>
+            </div>
+        <div>
+            <button class="btn btn-secondary" onclick="showAllStudents()">Show All Students</button>
+            <button class="btn btn-info" onclick="sortmarks()">Sort by Marks</button>
+            <button class="btn btn-danger" onclick="marksAbove70()">Above 70</button>
+        </div>
+        
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Marks</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<script>
+    let students=[];
+    let id=0;
+    function addStudent(){
+        let name=document.getElementById('name').value;
+        let score=document.getElementById('score').value;
+        if(name && score){
+            students.push({id:id++,name:name,score:score});
+            document.getElementById('name').value="";
+            document.getElementById('score').value="";
+        }
+    }
+    function showAllStudents(){
+        let table=document.querySelector('table');
+        let str=`<thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Marks</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>`;
+        students.map((student)=>{
+            str+=`
+                <tr>
+                    <td>${student.id}</td>
+                    <td>${student.name}</td>
+                    <td>${student.score}</td>
+                    <td>${student.score>=35?"Pass":"Fail"}</td>
+                    <td><button class="btn btn-sm btn-danger" onclick="deleteStudent(${student.id})">Delete</button></td>
+                </tr>
+            `
+        })
+        table.innerHTML=str;
+    }
+    function deleteStudent(id){
+        students=students.filter(student=>student.id!=id);
+        showAllStudents();
+    }
+    function sortmarks(){
+        students.sort((a,b)=>b.score-a.score);
+        showAllStudents();
+    }
+    function marksAbove70(){
+        let table=document.querySelector('table');
+        let str=`<thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Marks</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>`;
+        students.filter(student=>student.score>70).map((student)=>{
+            str+=`
+                <tr>
+                    <td>${student.id}</td>
+                    <td>${student.name}</td>
+                    <td>${student.score}</td>
+                    <td>${student.score>=35?"Pass":"Fail"}</td>
+                    <td><button class="btn btn-sm btn-danger" onclick="deleteStudent(${student.id})">Delete</button></td>
+                </tr>
+            `
+        })
+        table.innerHTML=str;
+    }
+</script>
+</body>
+</html>

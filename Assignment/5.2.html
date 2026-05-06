@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while loop sum all even numbers 1to20</title>
+</head>
+<body>
+    <button onclick="sumEvenNumbers()">Sum Even Numbers 1 to 20</button>
+
+    <script>
+        let ans;
+        function sumEvenNumbers() {
+            let sum = 0;
+            let i = 1;
+            while (i <= 20) {
+                if (i % 2 === 0) {
+                    sum += i;
+                }
+                i++;
+            }
+            alert("The sum of even numbers from 1 to 20 is: " + sum);
+            console.log("The sum of even numbers from 1 to 20 is: " + sum);
+            let ans = 'The sum of even numbers from 1 to 20 is: ' + sum;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: lightgray;
+            margin: 10px;
+            display: inline-block;
+        }
+        .main{
+            margin-top: 20px;
+            display: flex;
+            color: black;
+            background-color: lightyellow;
+        }
+
+    </style>
+</head>
+<body>
+    <p id="p1">This is a paragraph.</p>
+    <p id="p2">This is another paragraph.</p>
+    <div class="main">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+    </div>
+    <button onclick="applyborder()">Apply Border</button>
+    <button onclick="removeborder()">Remove Border</button>
+
+    <script>
+        let p1 = document.getElementById("p1");
+        console.log(p1);
+
+        function applyborder(){
+            let divarray = document.getElementsByClassName("box");
+            console.log(divarray);
+
+            for(let i=0; i<divarray.length; i++){
+                divarray[i].style.border = "2px solid blue";
+            }
+        }
+
+        function removeborder(){
+            let divarray = document.getElementsByClassName("box");
+            console.log(divarray);
+
+            for(let i=0; i<divarray.length; i++){
+                divarray[i].style.border = "none";
+            }
+        }
+    </script>
+</body>
+</html>
